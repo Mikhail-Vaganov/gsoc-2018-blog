@@ -1,4 +1,5 @@
-## Welcome to GitHub Pages
+# Tooling for N-body simulations in Julia
+## The GSoC 2018 project
 
 You can use the [editor on GitHub](https://github.com/Mikhail-Vaganov/gsoc-2018-blog/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
 
