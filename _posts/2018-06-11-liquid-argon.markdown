@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "From moving planets to liquid argon"
+title:  "From dancing stars to liquid argon"
 date:   2018-06-11 04:17:00 +0500
 ---
 
