@@ -72,15 +72,15 @@ These are usual physical parameters for liquid argon:
 {% highlight julia %}
 const T = 120.0 # °K
 const kb = 1.38e-23 # J/K
-const ϵ = T * kb
+const ϵ = T * kb # J
 const σ = 3.4e-10 # m
 const ρ = 1374 # kg/m^3
 const m = 39.95 * 1.6747 * 1e-27 # kg
 const N = 125
-const L = (m*N/ρ)^(1/3)#10.229σ
+const L = (m*N/ρ)^(1/3)
 const R = 2.25σ   
-const v_dev = sqrt(kb * T / m)
-const τ = 1e-14 # σ/v
+const v_dev = sqrt(kb * T / m) # m/s
+const τ = 1e-14  # s
 const t1 = 0τ
 const t2 = 100τ
 {% endhighlight %}
