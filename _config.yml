@@ -23,7 +23,6 @@ github_username:  Mikhail-Vaganov
 vkontakte-usename: bla-bla
 
 # Build settings
-markdown: redcarpet
 theme: minima
 plugins:
   - jekyll-feed
