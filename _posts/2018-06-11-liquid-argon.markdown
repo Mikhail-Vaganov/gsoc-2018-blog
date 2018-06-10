@@ -82,7 +82,7 @@ const R = 2.25σ
 const v_dev = sqrt(kb * T / m)
 const τ = 1e-14 # σ/v
 const t1 = 0τ
-const t2 = 2000τ
+const t2 = 100τ
 {% endhighlight %}
 It is up to a user to define initial coordinates and velocities of particles. Nevertheless, it is convenient to place atoms in the nodes of a cubic lattice, at the same time satisfying the value of liquid argon density:
 {% highlight julia %}
