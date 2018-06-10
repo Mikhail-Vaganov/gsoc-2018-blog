@@ -4,10 +4,9 @@ title:  "From moving planets to liquid argon"
 date:   2018-06-11 04:17:00 +0500
 ---
 
-<script type="text/javascript"
-    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML">
 </script>
-
 
 During my GSoC-2018 project, I will develop tools for n-body simulations in Julia. Many physical systems can be described in terms of interacting particles or bodies. The result of simulating such systems is trajectories of particles, whose movements obey Newton's 2nd low:
 
