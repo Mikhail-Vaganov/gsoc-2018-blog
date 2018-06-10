@@ -16,7 +16,7 @@
 title: GSoC-2018 N-body simulations
 email: mikhail.vaganov.sci@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  This is a blog devoted to the GSoC-2018 project "Tooling N-body Simulations in Julia".
+  This is a blog devoted to the GSoC-2018 project "Tooling for N-body Simulations in Julia".
 baseurl: "/gsoc-2018-blog" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  Mikhail-Vaganov

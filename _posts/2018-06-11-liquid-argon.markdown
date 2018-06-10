@@ -8,7 +8,7 @@ date:   2018-06-11 04:17:00 +0500
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML">
 </script>
 
-During my GSoC-2018 project, I will develop tools for n-body simulations in Julia. Many physical systems can be described in terms of interacting particles or bodies. The result of simulating such systems is trajectories of particles, whose movements obey Newton's 2nd low:
+During my GSoC-2018 [project](https://summerofcode.withgoogle.com/projects/#5697153159135232), I will develop tools for n-body simulations in Julia. Many physical systems can be described in terms of interacting particles or bodies. The result of simulating such systems is trajectories of particles, whose movements obey Newton's 2nd low:
 
 $$ \frac{d\textbf{r}_i}{dt} = \textbf{v}_i $$
 
