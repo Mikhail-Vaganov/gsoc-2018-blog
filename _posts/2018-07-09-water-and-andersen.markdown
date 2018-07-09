@@ -24,6 +24,55 @@ $$ V^{inter}=\sum_{i,j}^{all pairs}\Big\{4\epsilon_{ij}\Big[\Big(\frac{\sigma_{i
 
 The implemented functions for the mentioned potentials and corresponding accelerations can be used in simulations of arbitrary molecules.
 
+### Example of simulations
+
+First of all we need to define the constants for our system parameters in the OpenMM units of measurement:
+{% highlight julia %}
+const T = 298.16 # °K
+const kb = 8.3144598e-3 # kJ/(K*mol)
+const ϵOO = 0.1554253*4.184 # kJ 
+const σOO = 0.3165492 # nm
+const ρ = 997/1.6747# Da/nm^3
+const mO = 15.999 # Da
+const mH = 1.00794 # Da
+const mH2O = mO+2*mH
+const N = 216
+const L = (mH2O*N/ρ)^(1/3)
+const R = 0.9 # ~3*σOO  
+const Rel = 0.49*L
+const v_dev = sqrt(kb * T /mH2O)
+const τ = 0.5e-3 # ps
+const t1 = 0τ
+const t2 = 300τ # ps
+const k_bond = 1059.162*4.184*1e2 # kJ/(mol*nm^2)
+const k_angle = 75.90*4.184 # kJ/(mol*rad^2)
+const rOH = 0.1012 # nm
+const ∠HOH = 113.24*pi/180 # rad
+const qH = 0.41
+const qO = -0.82
+const k = 138.935458 #
+{% endhighlight %}
+
+Next steps include building of the simulation environment:
+
+{% highlight julia %}
+bodies = generate_bodies_in_cell_nodes(N, mH2O, v_dev, L)
+lj_parameters = LennardJonesParameters(ϵOO, σOO, R)
+e_parameters = ElectrostaticParameters(k, Rel)
+spc_paramters = SPCFwParameters(rOH, ∠HOH, k_bond, k_angle)
+pbc = CubicPeriodicBoundaryConditions(L)
+water = WaterSPCFw(bodies, mH, mO, qH, qO,  lj_parameters, e_parameters, spc_paramters);
+simulation = NBodySimulation(water, (t1, t2), pbc, kb);
+result = @time run_simulation(simulation, VelocityVerlet(), dt=τ)
+{% endhighlight %}
+
+That is all! After the calculation is done, we can use the `result` variable to access the properties of the simulated system. For example, let us collect data about energy of the system:
+
+{% highlight julia %}
+e_kin = kinetic_energy.(result, t)/(kb*T)
+e_pot = potential_energy.(result, t)/(kb*T)
+{% endhighlight %}
+
 During simulation of water the law of energy conservation is satisfied:
 
 <img src="https://user-images.githubusercontent.com/16945627/42471765-5967689a-83d8-11e8-9cf5-790e8ab33947.png">
