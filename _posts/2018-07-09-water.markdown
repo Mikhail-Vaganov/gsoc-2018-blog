@@ -71,6 +71,7 @@ result = @time run_simulation(simulation, VelocityVerlet(), dt=τ)
 After the calculation is done, we can use the `result` variable to access the properties of the simulated system. For example, let us collect data about energy of the system:
 
 {% highlight julia %}
+t = t1:τ:result.solution.t[end-1]
 e_kin = kinetic_energy.(result, t)/(kb*T)
 e_pot = potential_energy.(result, t)/(kb*T)
 {% endhighlight %}
