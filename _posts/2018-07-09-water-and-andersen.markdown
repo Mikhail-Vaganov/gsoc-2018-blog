@@ -12,21 +12,23 @@ For development of tools for molecular dynamics simulations we needed to impleme
 
 The molecule structure of $$H_2O$$ is preserved under action of two components of intramolecular potentials.
 The first one is a harmonic bond potential controlling distances between atoms of hydrogen and the central atom of oxygen. 
-The second one is also a harmonic  potential preserving the desired valence angle between those atomic bonds.
+The second one is also a harmonic potential preserving the desired valence angle between those atomic bonds.
 
-$$ V^{intra}=\frac{k_b}{2}\Big[(r_{OH_1}-r^0_{OH})^2+(r_{OH_2}-r^0_{OH})^2\Big] + \frac{k_a}{2}(\theta_{\angle HOH}-\theta_{\angle HOH}^0)^2$$
+$$ V^{intra}=\frac{k_b}{2}\Big[(r_{OH_1}-r^0_{OH})^2+(r_{OH_2}-r^0_{OH})^2\Big] + \frac{k_a}{2}(\theta_{\angle HOH}-\theta_{\angle HOH}^0)^2,$$
 
 where $$r^0_{OH}$$ and $$\theta_{\angle HOH}^0$$ are the equilibrium bond length and angle, $$k_a$$ and $$k_b$$ are coefficients of the bond and valence angle elasticity.
 
-Molecules of water interact by means of the Lennard-Jones and Coulomb intermolecular potentials:
+Molecules of water interact by means of the (Lennard-Jones)[https://en.wikipedia.org/wiki/Lennard-Jones_potential] and (Coulomb)[https://en.wikipedia.org/wiki/Coulomb%27s_law] intermolecular potentials:
 
-$$ V^{inter}=\sum_{i,j}^{all pairs}\Big\{4\epsilon_{ij}\Big[\Big(\frac{\sigma_{ij}}{r_{ij}}\Big)^{12}-\Big(\frac{\sigma_{ij}}{r_{ij}}\Big)^{6}\Big]+\frac{q_iq_j}{r_{ij}}\Big\}$$
+$$ V^{inter}=\sum_{i,j}^{all\,pairs}\Big\{4\epsilon_{ij}\Big[\Big(\frac{\sigma_{ij}}{r_{ij}}\Big)^{12}-\Big(\frac{\sigma_{ij}}{r_{ij}}\Big)^{6}\Big]+k\frac{q_iq_j}{r_{ij}}\Big\},$$
+
+where $$\epsilon_{ij}$$ and $$\sigma_{ij}$$ are the LJ potential parameters, $$r_{ij}$$ denotes the distance between oxygen atoms of the i-th and j-th molecules,  $$k$$ is the electrostatic constant, $$q_i$$ is the charge of the i-th particle.
 
 The implemented functions for the mentioned potentials and corresponding accelerations can be used in simulations of arbitrary molecules.
 
-### Example of simulations
+### Example of simulation
 
-First of all we need to define the constants for our system parameters in the OpenMM units of measurement:
+First of all we need to define the constants for our system parameters. Here I used the OpenMM units of measurement:
 {% highlight julia %}
 const T = 298.16 # °K
 const kb = 8.3144598e-3 # kJ/(K*mol)
@@ -53,7 +55,7 @@ const qO = -0.82
 const k = 138.935458 #
 {% endhighlight %}
 
-Next steps include building of the simulation environment:
+The next steps include building of the simulation environment:
 
 {% highlight julia %}
 bodies = generate_bodies_in_cell_nodes(N, mH2O, v_dev, L)
@@ -66,7 +68,7 @@ simulation = NBodySimulation(water, (t1, t2), pbc, kb);
 result = @time run_simulation(simulation, VelocityVerlet(), dt=τ)
 {% endhighlight %}
 
-That is all! After the calculation is done, we can use the `result` variable to access the properties of the simulated system. For example, let us collect data about energy of the system:
+After the calculation is done, we can use the `result` variable to access the properties of the simulated system. For example, let us collect data about energy of the system:
 
 {% highlight julia %}
 e_kin = kinetic_energy.(result, t)/(kb*T)
@@ -91,7 +93,7 @@ First of all, the RDF for liquid argon:
 And the RDF for the water SPC/Fw model (216 particles, from 0 till 1.5 ps by 0.5 fs time step):
 ![rdf for water 216 particles 2997 steps](https://user-images.githubusercontent.com/16945627/42346082-d1177e5a-80ba-11e8-9fc4-141a61b3ab3f.png)
 
-Mean-square displacement may be used for estimation of particles diffusion.
+Mean squared displacement may be used for estimation of particles diffusion.
 
 {% highlight julia %}
 (ts, dr2) = msd(result)
