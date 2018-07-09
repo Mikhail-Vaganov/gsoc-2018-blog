@@ -80,7 +80,7 @@ During simulation of water the law of energy conservation is satisfied:
 <img src="https://user-images.githubusercontent.com/16945627/42471765-5967689a-83d8-11e8-9cf5-790e8ab33947.png">
 
 ### Radial distribution function
-Radial distribution function ([RDF](https://en.wikipedia.org/wiki/Radial_distribution_function)) is a very important tool in molecular dynamics.
+The radial distribution function ([RDF](https://en.wikipedia.org/wiki/Radial_distribution_function)) is a very important tool in molecular dynamics.
 
 {% highlight julia %}
 (rs, grf) = rdf(result)
@@ -93,7 +93,7 @@ First of all, the RDF for liquid argon:
 And the RDF for the water SPC/Fw model (216 particles, from 0 till 1.5 ps by 0.5 fs time step):
 ![rdf for water 216 particles 2997 steps](https://user-images.githubusercontent.com/16945627/42346082-d1177e5a-80ba-11e8-9fc4-141a61b3ab3f.png)
 
-Mean squared displacement may be used for estimation of particles diffusion.
+The mean squared displacement may be used for estimation of particles diffusion.
 
 {% highlight julia %}
 (ts, dr2) = msd(result)
@@ -112,15 +112,16 @@ save_to_pdb(result, path_to_the_file )
 
 ### Summary
 All tools, that I develop for n-body simulations, are located in [DiffEqPhysics.jl](https://github.com/JuliaDiffEq/DiffEqPhysics.jl) project. The `test` and `examples` folder contains examples of all physical interactions already implemented. At the moment of writing this post, the following items can be used in simulations:
-- gravitational
-- electrostatic
-- magnetostatic
-- based on the [Lennard-Jones potential](https://en.wikipedia.org/wiki/Lennard-Jones_potential)
+- gravitational interaction
+- electrostatic interaction
+- magnetostatic interaction
+- the [Lennard-Jones potential](https://en.wikipedia.org/wiki/Lennard-Jones_potential)
 - custom pair-wise interaction implemented via the `CustomAccelerationSystem` interface
 - harmonic bonds between particles
 - harmonic potential for valence angle between atoms
 - radial distribution function
-- mean swuare displacement
+- mean squared displacement
+- Andersen thermostating
 
 Pull requests for this post: [#32](https://github.com/JuliaDiffEq/DiffEqPhysics.jl/pull/32)
 
