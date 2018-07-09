@@ -71,4 +71,6 @@ All tools, that I develop for n-body simulations, are located in [DiffEqPhysics.
 - radial distribution function
 - mean swuare displacement
 
+Pull requests for this post: [#32](https://github.com/JuliaDiffEq/DiffEqPhysics.jl/pull/32)
+
 
