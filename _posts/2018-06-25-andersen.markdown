@@ -1,0 +1,64 @@
+---
+layout: post
+title:  "Andersen thermostat"
+date:   2018-06-25 23:00:00 +0500
+---
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+During molecular dynamics simulations it is often important to keep the temperature of the system constant.
+Different algorithms have been developed for thermostating.
+The first one I implemented was the [Andersen thermostat](http://www.sklogwiki.org/SklogWiki/index.php/Andersen_thermostat). 
+It doesn't keep the energy of a system constant, so this thermostat is used for equilibration and initial stabilization of the temperature in microcanonical ensembles (NVE). But it can be used for simulation of a canonical ensemble (NVT).
+Also the Andersen thermostat can be used only for time-independent properties.
+At every integration timestep velocity of random particles is rescaled according to the Maxwell–Boltzmann statistics for the given temperature.
+Those random particles are chosen according to the Poisson distribution:
+
+$$P(t)=\nu e^{-\nu t},$$
+
+where $$\nu$$ is the stochastic collision frequency.
+
+The way to construct an Andersen thermostat entity is straightforward:
+
+{% highlight julia %}
+thermostat = AndersenThermostat(0.02, T, kb)
+{% endhighlight %}
+
+### Example of simulation
+{% highlight julia %}
+using DiffEqPhysics
+
+T = 120.0 # °K
+kb = 8.3144598e-3 # kJ/(K*mol)
+ϵ = T * kb
+σ = 0.34 # nm
+ρ = 1374/1.6747# Da/nm^3
+m = 39.95# Da
+N = 1000
+L = (m*N/ρ)^(1/3)#10.229σ
+R = 0.5*L   
+v_dev = sqrt(kb * T / m)
+bodies = generate_bodies_in_cell_nodes(N, m, v_dev, L)
+
+τ = 0.5e-3 # ps or 1e-12 s
+t1 = 0.0
+t2 = 3000τ
+
+parameters = LennardJonesParameters(ϵ, σ, R)
+lj_system = PotentialNBodySystem(bodies, Dict(:lennard_jones => parameters));
+thermostat = AndersenThermostat(0.02, T, kb)
+pbc = CubicPeriodicBoundaryConditions(L)
+simulation = NBodySimulation(lj_system, (t1, t2), pbc, thermostat, kb);
+result = @time run_simulation(simulation, VelocityVerlet(), dt=τ)
+
+
+using Plots
+t = t1:τ:result.solution.t[end-1]
+temper = temperature.(result, t)
+plot(t, temper, ylim=[0,200], xlabel="t, ps", ylabel = "T, °K", label="Temperature, °K" )
+{% endhighlight %}
+
+As was expected, the temperature of the system fluctuates near 120 $$^\circ K$$
+<img src="https://user-images.githubusercontent.com/16945627/42479084-b1e355de-83f0-11e8-80b2-ecace3302bd1.png" alt="picture for the andersen thermostating">
