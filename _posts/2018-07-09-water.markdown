@@ -103,7 +103,7 @@ The mean squared displacement may be used for estimation of particles diffusion.
 ![msd for water 216 particles 2997 steps](https://user-images.githubusercontent.com/16945627/41996180-8b9667ae-7a6d-11e8-9aa6-b0a441064e82.png)
 
 ### Visualization in VMD
-In order to export results of simulations, namely trajectories, I have implemented saving positions of particles at every timestep in a PDB file.
+In order to export results of simulations, namely trajectories, I have implemented saving positions of particles at every timestep in a [PDB file](https://en.wikipedia.org/wiki/Protein_Data_Bank_(file_format)).
 
 {% highlight julia %}
 save_to_pdb(result, path_to_the_file )
