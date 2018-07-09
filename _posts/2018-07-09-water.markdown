@@ -112,7 +112,7 @@ save_to_pdb(result, path_to_the_file )
 <img src="https://user-images.githubusercontent.com/16945627/42470151-0774a85e-83d3-11e8-9ca6-6a5925848d62.gif" alt="Here should have appeared a gif with moving water molecules">
 
 ### Summary
-All tools, that I develop for n-body simulations, are located in [DiffEqPhysics.jl](https://github.com/JuliaDiffEq/DiffEqPhysics.jl) project. The `test` and `examples` folder contains examples of all physical interactions already implemented. At the moment of writing this post, the following items can be used in simulations:
+All tools, that I develop for n-body simulations, are located in [DiffEqPhysics.jl](https://github.com/JuliaDiffEq/DiffEqPhysics.jl) project. The `test` and `examples` folders contain examples of all physical interactions already implemented. At the moment of writing this post, the following items can be used in simulations:
 - gravitational interaction
 - electrostatic interaction
 - magnetostatic interaction
