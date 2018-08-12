@@ -15,7 +15,7 @@ date:   2018-08-11 23:00:00 +0500
 ## What Was the Goal?
 For the GSoC 2018 event I proposed to develop tools for handling N-body simulations. It was planned to develop an interface system of potentials, forces, constraints, thermostating, which will allow one to use those components as construction blocks during the implementation of arbitrary N-body simulations.
 
-## NbodySimulator.jl
+## NBodySimulator.jl
 During the GSoC 2018 such tools were created in [DiffEqPhysics][link_to_DiffEqPhysics] project, devoted to solving physical problems formulated in terms of differential equations. At some point of coding period there were enough tools and features for N-body simulations to separate them into their own project.
 
 [**NBodySimulation.jl**][link_to_NBodySimulator] was created in [JuliaDiffEq][link_to_JuliaDiffEq] organization as a container of tools for N-body simulations, including molecular dynamics, interaction of celestial bodies, charged particles, etc. Using the tools different systems of N-bodies can be modelled:
@@ -108,4 +108,4 @@ This is the list of my pull request:
 ## Conclusion
 All the tasks and goals of the GSoC project were completed.
 
-Further work will be devoted to improvement of **NBodySimulator** project in order to make it a full-fledged open source tool for N-body simulations.
+Further work will be devoted to submitting a JOSS article and improvement of **NBodySimulator** project in order to make it a full-fledged open source tool for N-body simulations.
