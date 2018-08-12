@@ -46,7 +46,10 @@ Radial distribution of liquid argon particles is shown in the next figure.
 ![rdf of liquid argon](https://user-images.githubusercontent.com/16945627/44006432-c86272e6-9e9d-11e8-92fd-3d539f07ed59.png)
 
 Integration of NBodySimulator.jl with [Makie.jl](https://github.com/JuliaPlots/Makie.jl) via its recipes allows one to create animations of water molecules:
-![animation of water molecules](http://makie.juliaplots.org/stable/media/type_recipe_for_molecule_simulation.mp4)
+<video controls="" autoplay="" loop="" muted="">
+      <source src="media\type_recipe_for_molecule_simulation.mp4" type="video/mp4">
+      Your browser does not support mp4. Please use a modern browser like Chrome or Firefox.
+</video>
 
 ## Difficulties
 The first trouble I faced with was implementation of periodic boundary conditions. It seems obvious for me now how to force particles going through one of the simulation cell boundary to appear at the opposite side of the box. But during the first weeks of codding for the GSoC, particles in my simulations were jumping all over the box, suddenly approaching to each other, creating strong repullsive force... and making the simulation finish with failure.
