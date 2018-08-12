@@ -9,11 +9,16 @@ date:   2018-08-11 23:00:00 +0500
 </script>
 
 [link_to_NBodySimulator]: https://github.com/JuliaDiffEq/NBodySimulator.jl
+[link_to_DiffEqPhysics]: https://github.com/JuliaDiffEq/DiffEqPhysics.jl
+[link_to_JuliaDiffEq]: https://github.com/JuliaDiffEq
 
 ## What Was the Goal?
 For the GSoC 2018 event I proposed to develop tools for handling N-body simulations. It was planned to develop an interface system of potentials, forces, constraints, thermostating, which will allow one to use those components as construction blocks during the implementation of arbitrary N-body simulations.
 
-## [NbodySimulator][link_to_NBodySimulator]
+## NbodySimulator.jl
+During the GSoC 2018 such tools were created in [DiffEqPhysics][link_to_DiffEqPhysics] project, devoted to solving physical problems formulated in terms of differential equation. At some point of codding period there were enough tools and features for N-body simulations to separate them into its own project.
+
+[**NBodySimulation.jl**][link_to_NBodySimulator] was created in [JuliaDiffEq][link_to_JuliaDiffEq] organization as a container of tools for N-body simulations, including molecular dynamics, interaction of celestial bodies, charged particles, etc.
 
 Using the tools different systems of N-bodies can be simulated:
 - charged particles
@@ -45,7 +50,7 @@ For analyzing results of simulation one can use the following tools:
 Radial distribution of liquid argon particles is shown in the next figure.
 ![rdf of liquid argon](https://user-images.githubusercontent.com/16945627/44006432-c86272e6-9e9d-11e8-92fd-3d539f07ed59.png)
 
-Integration of NBodySimulator.jl with [Makie.jl](https://github.com/JuliaPlots/Makie.jl) via its recipes allows one to create animations of water molecules:
+Integration of NBodySimulator.jl with [Makie.jl](https://github.com/JuliaPlots/Makie.jl) via its [recipes](http://makie.juliaplots.org/stable/examples-meshscatter.html#Type-recipe-for-molecule-simulation-1) allows one to create animations of water molecules:
 <video controls="" autoplay="" loop="" muted="">
       <source src="http://makie.juliaplots.org/stable/media\type_recipe_for_molecule_simulation.mp4" type="video/mp4">
       Your browser does not support mp4. Please use a modern browser like Chrome or Firefox.
@@ -63,7 +68,7 @@ Certainly the work under development and inprovement of the tools should be cont
 - Implementation of the Ewald summation or other algorithms for approximation of the long range potentials is highly needed for correct calculations.
 - The Nosé-Hoover chains or more advanced MD water models (TIP4P/2005, OPC, etc.) would be interesting for molecular dynamics simulations.
 - Handling rotation of magnetic moments will make NBodySimulator a greate tool for simulating ferromagnetic liquids and elastomers.
-- For preparing further instructions and advice for users it can be useful to compare different integrators of differential equation from [JuliaDiffEq](https://github.com/JuliaDiffEq) solving N-body problems.
+- For preparing further instructions and advice for users it can be useful to compare different integrators of differential equation from [JuliaDiffEq][link_to_JuliaDiffEq] solving N-body problems.
 
 ## Documentation
 The documentation for N-body simulation tools consists of 
@@ -74,7 +79,7 @@ The documentation for N-body simulation tools consists of
 ## Code
 All the features and tools I developed during the GSoC event were separated into a brand new project called [NBodySimulator.jl][link_to_NBodySimulator].
 
-But before that the developent was proceeding inside [DiffQePhysics.jl](https://github.com/JuliaDiffEq/DiffEqPhysics.jl) project.
+But before that the developent was proceeding inside [DiffQePhysics.jl][link_to_DiffEqPhysics] project.
 
 This is the list of my pull request:
 
