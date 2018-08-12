@@ -8,11 +8,34 @@ date:   2018-08-11 23:00:00 +0500
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML">
 </script>
 
+[link_to_NBodySimulator]: https://github.com/JuliaDiffEq/NBodySimulator.jls
+
 ## What Was the Goal?
 For the GSoC 2018 event I proposed to develop tools for handling N-body simulations. It was planned to develop an interface system of potentials, forces, constraints, thermostating, which will allow one to use those components as construction blocks during the implementation of arbitrary N-body simulations.
 
-## NbodySimulator
+## [NbodySimulator][link_to_NBodySimulator]
 
+Using the tools different systems of N-bodies can be simulated:
+- charged particles
+- magnetic particles
+- neutral atoms and molecules
+- celestial bodies
+- water and liquid argon
+
+Flexible developent of new systems is possible thanks to the following implemented potentials:
+- elstrostatic
+- magnetostatic
+- Lennard-Jones
+- harmonic bonds between particles
+- harmonic angle mad of pairs of bonds
+
+One even can define a custom potential using interface of NBodySimulator described in the documentation and create its own structure for a system of particles or just use universal `PotentialNBodySystem`.
+
+Specifically for molecular dynamics simulations four tools for different thermostating methods were created:
+- Anderesen thermostat
+- Berendsen thermostat
+- Nosé-Hoover thermostat
+- Langevin thermostat
 
 ## Difficulties
 The first trouble I faced with was implementation of periodic boundary conditions. It seems obvious for me now how to force particles going through one of the simulation cell boundary to appear at the opposite side of the box. But during the first weeks of codding for the GSoC, particles in my simulations were jumping all over the box, suddenly approaching to each other, creating strong repullsive force... and making the simulation finish with failure.
@@ -22,7 +45,7 @@ The second problem was the Langevin thermostating for water. It turned out to be
 
 ## Further work
 Certainly the work under development and inprovement of the tools should be continued.
-- Performance improvements are the top of ist, because to run calculations quickly is what the computer simulations were developed for.
+- Performance improvements are the top of the list, because to run calculations quickly is what the computer simulations were developed for.
 - Implementation of the Ewald summation or other algorithms for approximation of the long range potentials is highly needed for correct calculations.
 - The Nosé-Hoover chains or more advanced MD water models (TIP4P/2005, OPC, etc.) would be interesting for molecular dynamics simulations.
 - Handling rotation of magnetic moments will make NBodySimulator a greate tool for simulating ferromagnetic liquids and elastomers.
