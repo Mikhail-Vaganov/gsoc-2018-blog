@@ -27,16 +27,16 @@ But before that the developent was proceeding inside [DiffQePhysics.jl](https://
 This is the list of my pull request:
 
 **DiffEqPhysics.jl**
-- [#26](https://github.com/JuliaDiffEq/DiffEqPhysics.jl/pull/26)
+- [#26](https://github.com/JuliaDiffEq/DiffEqPhysics.jl/pull/26), 
 - [#30](https://github.com/JuliaDiffEq/DiffEqPhysics.jl/pull/30)
 - [#31](https://github.com/JuliaDiffEq/DiffEqPhysics.jl/pull/31)
 - [#32](https://github.com/JuliaDiffEq/DiffEqPhysics.jl/pull/32)
 - [#33](https://github.com/JuliaDiffEq/DiffEqPhysics.jl/pull/33)
 
 **NBodySimulator**
-- [#1](https://github.com/JuliaDiffEq/NBodySimulator.jl/pull/1)
-- [#2](https://github.com/JuliaDiffEq/NBodySimulator.jl/pull/2)
-- [#3](https://github.com/JuliaDiffEq/NBodySimulator.jl/pull/3)
-- [#5](https://github.com/JuliaDiffEq/NBodySimulator.jl/pull/5)
-- [#7](https://github.com/JuliaDiffEq/NBodySimulator.jl/pull/7)
-- [#8](https://github.com/JuliaDiffEq/NBodySimulator.jl/pull/8)
+- [#1 "changed configuration for appveyor"](https://github.com/JuliaDiffEq/NBodySimulator.jl/pull/1)
+- [#2 "N-body simulations are moving here from DiffEqPhysics"](https://github.com/JuliaDiffEq/NBodySimulator.jl/pull/2)
+- [#3 "Attempt to repair the testing"](https://github.com/JuliaDiffEq/NBodySimulator.jl/pull/3)
+- [#5 "Improved testing"](https://github.com/JuliaDiffEq/NBodySimulator.jl/pull/5)
+- [#7 "Documentation"](https://github.com/JuliaDiffEq/NBodySimulator.jl/pull/7)
+- [#8 "Renaming file NBodySimulator"](https://github.com/JuliaDiffEq/NBodySimulator.jl/pull/8)
