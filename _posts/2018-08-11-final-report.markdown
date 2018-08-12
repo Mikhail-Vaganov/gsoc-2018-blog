@@ -47,7 +47,7 @@ Radial distribution of liquid argon particles is shown in the next figure.
 
 Integration of NBodySimulator.jl with [Makie.jl](https://github.com/JuliaPlots/Makie.jl) via its recipes allows one to create animations of water molecules:
 <video controls="" autoplay="" loop="" muted="">
-      <source src="media\type_recipe_for_molecule_simulation.mp4" type="video/mp4">
+      <source src="http://makie.juliaplots.org/stable/media\type_recipe_for_molecule_simulation.mp4" type="video/mp4">
       Your browser does not support mp4. Please use a modern browser like Chrome or Firefox.
 </video>
 
