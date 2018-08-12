@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "GSoC 2018 - the Final Report"
+title:  "GSoC 2018 - Final Report"
 date:   2018-08-11 23:00:00 +0500
 ---
 
@@ -8,7 +8,7 @@ date:   2018-08-11 23:00:00 +0500
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML">
 </script>
 
-[link_to_NBodySimulator]: https://github.com/JuliaDiffEq/NBodySimulator.jls
+[link_to_NBodySimulator]: https://github.com/JuliaDiffEq/NBodySimulator.jl
 
 ## What Was the Goal?
 For the GSoC 2018 event I proposed to develop tools for handling N-body simulations. It was planned to develop an interface system of potentials, forces, constraints, thermostating, which will allow one to use those components as construction blocks during the implementation of arbitrary N-body simulations.
@@ -37,6 +37,17 @@ Specifically for molecular dynamics simulations four tools for different thermos
 - Nosé-Hoover thermostat
 - Langevin thermostat
 
+For analyzing results of simulation one can use the following tools:
+- Radial distribution function calculation
+- Mean squared displacement calculation
+- Kinetic, potential, total energy functions
+
+Radial distribution of liquid argon particles is shown in the next figure.
+![rdf of liquid argon](https://user-images.githubusercontent.com/16945627/44006432-c86272e6-9e9d-11e8-92fd-3d539f07ed59.png)
+
+Integration of NBodySimulator.jl with [Makie.jl](https://github.com/JuliaPlots/Makie.jl) via its recipes allows one to create animations of water molecules:
+![animation of water molecules](http://makie.juliaplots.org/stable/media/type_recipe_for_molecule_simulation.mp4)
+
 ## Difficulties
 The first trouble I faced with was implementation of periodic boundary conditions. It seems obvious for me now how to force particles going through one of the simulation cell boundary to appear at the opposite side of the box. But during the first weeks of codding for the GSoC, particles in my simulations were jumping all over the box, suddenly approaching to each other, creating strong repullsive force... and making the simulation finish with failure.
 
@@ -53,12 +64,12 @@ Certainly the work under development and inprovement of the tools should be cont
 
 ## Documentation
 The documentation for N-body simulation tools consists of 
-- the README.md file in [NBodySimulator project](https://github.com/JuliaDiffEq/NBodySimulator.jl)
+- the README.md file in [NBodySimulator project][link_to_NBodySimulator]
 - [scripts](https://github.com/JuliaDiffEq/NBodySimulator.jl/tree/master/examples) inside `examples` folder
 - [posts](https://mikhail-vaganov.github.io/gsoc-2018-blog/) of this blog 
 
 ## Code
-All the features and tools I developed during the GSoC event were separated into a brand new project called [NBodySimulator.jl](https://github.com/JuliaDiffEq/NBodySimulator.jls).
+All the features and tools I developed during the GSoC event were separated into a brand new project called [NBodySimulator.jl][link_to_NBodySimulator].
 
 But before that the developent was proceeding inside [DiffQePhysics.jl](https://github.com/JuliaDiffEq/DiffEqPhysics.jl) project.
 
