@@ -27,7 +27,8 @@ During the GSoC 2018 such tools were created in [DiffEqPhysics][link_to_DiffEqPh
 - liquid argon and other Lennard-Jones fluids
 
 In the field of gravitationally interacting bodies, choreography is a periodic solution in which all the bodies are equally spread out along a single orbit. The 5-body choreography looks like this:
-![5-body choreography](https://user-images.githubusercontent.com/16945627/44007423-8e36059a-9eae-11e8-8b4e-e76459ccc1a0.gif)
+
+<img src="ttps://user-images.githubusercontent.com/16945627/44007423-8e36059a-9eae-11e8-8b4e-e76459ccc1a0.gif" alt="Here should appear a gif of the 5-body choreography" width="380"/>
 
 Flexible developent of new systems is possible thanks to the following implemented potentials:
 - electrostatic
