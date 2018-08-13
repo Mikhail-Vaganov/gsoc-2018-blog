@@ -16,7 +16,7 @@ date:   2018-08-11 23:00:00 +0500
 For the GSoC 2018 event I proposed to develop tools for handling N-body simulations. It was planned to develop an interface system of potentials, forces, constraints, thermostating, which will allow one to use those components as construction blocks during the implementation of arbitrary N-body simulations.
 
 ## NBodySimulator.jl
-During the GSoC 2018 such tools were created in [DiffEqPhysics][link_to_DiffEqPhysics] project, devoted to solving physical problems formulated in terms of differential equations. At some point of coding period there were enough tools and features for N-body simulations to separate them into their own project.
+During the GSoC 2018 such tools were created in [DiffEqPhysics][link_to_DiffEqPhysics] project, devoted to solving physical problems formulated in terms of differential equations. At some point of coding period there were enough functions and features for N-body simulations to separate them into their own project.
 
 [**NBodySimulator.jl**][link_to_NBodySimulator] was created in [JuliaDiffEq][link_to_JuliaDiffEq] organization as a container of tools for N-body simulations, including molecular dynamics, interaction of celestial bodies, charged particles, etc. Using the tools different systems of N-bodies can be modelled:
 - charged particles
@@ -26,7 +26,7 @@ During the GSoC 2018 such tools were created in [DiffEqPhysics][link_to_DiffEqPh
 - SPC/Fw water model
 - liquid argon and other Lennard-Jones fluids
 
-In the field of gravitationally interacting bodies, choreography is a periodic solution in which all the bodies are equally spread out along a single orbit. Here is an example of such 5-body choreography modelled using NBodySimulator:
+For example, in the field of gravitationally interacting bodies, choreography is a periodic solution in which all the bodies are equally spread out along a single orbit. Here is one of such 5-body choreography modelled using NBodySimulator:
 
 <img src="https://user-images.githubusercontent.com/16945627/44007423-8e36059a-9eae-11e8-8b4e-e76459ccc1a0.gif" alt="Here should appear a gif of the 5-body choreography" width="380"/>
 
