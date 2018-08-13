@@ -18,7 +18,7 @@ For the GSoC 2018 event I proposed to develop tools for handling N-body simulati
 ## NBodySimulator.jl
 During the GSoC 2018 such tools were created in [DiffEqPhysics][link_to_DiffEqPhysics] project, devoted to solving physical problems formulated in terms of differential equations. At some point of coding period there were enough tools and features for N-body simulations to separate them into their own project.
 
-[**NBodySimulation.jl**][link_to_NBodySimulator] was created in [JuliaDiffEq][link_to_JuliaDiffEq] organization as a container of tools for N-body simulations, including molecular dynamics, interaction of celestial bodies, charged particles, etc. Using the tools different systems of N-bodies can be modelled:
+[**NBodySimulator.jl**][link_to_NBodySimulator] was created in [JuliaDiffEq][link_to_JuliaDiffEq] organization as a container of tools for N-body simulations, including molecular dynamics, interaction of celestial bodies, charged particles, etc. Using the tools different systems of N-bodies can be modelled:
 - charged particles
 - magnetic particles
 - neutral atoms and molecules
@@ -26,7 +26,7 @@ During the GSoC 2018 such tools were created in [DiffEqPhysics][link_to_DiffEqPh
 - SPC/Fw water model
 - liquid argon and other Lennard-Jones fluids
 
-In the field of gravitationally interacting bodies, choreography is a periodic solution in which all the bodies are equally spread out along a single orbit. The 5-body choreography looks like this:
+In the field of gravitationally interacting bodies, choreography is a periodic solution in which all the bodies are equally spread out along a single orbit. Here is an example of such 5-body choreography modelled using NBodySimulator:
 
 <img src="https://user-images.githubusercontent.com/16945627/44007423-8e36059a-9eae-11e8-8b4e-e76459ccc1a0.gif" alt="Here should appear a gif of the 5-body choreography" width="380"/>
 
@@ -59,7 +59,7 @@ Integration of NBodySimulator.jl with [Makie.jl](https://github.com/JuliaPlots/M
       Your browser does not support mp4. Please use a modern browser like Chrome or Firefox.
 </video>
 
-It is also possible to import data from and export data to [PDB](https://en.wikipedia.org/wiki/Protein_Data_Bank_(file_format)) files, and then, for example, visualize particles in [VMD](http://www.ks.uiuc.edu/Research/vmd/) software.
+It is also possible to import data from and export data to [PDB](https://en.wikipedia.org/wiki/Protein_Data_Bank_(file_format)) files, and then, for example, visualize particles in [VMD](http://www.ks.uiuc.edu/Research/vmd/) software. Though, it is fully implemented only for water for now.
 
 ## Difficulties
 The first trouble I faced with was implementation of periodic boundary conditions. It seems obvious for me now how to force particles going through one of the simulation cell boundary to appear at the opposite side of the box. But during the first weeks of coding for the GSoC, particles in my simulations were jumping all over the box, suddenly approaching to each other, creating strong repullsive force... and making the simulation finish with failure.
