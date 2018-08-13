@@ -30,7 +30,7 @@ For example, in the field of gravitationally interacting bodies, choreography is
 
 <img src="https://user-images.githubusercontent.com/16945627/44007423-8e36059a-9eae-11e8-8b4e-e76459ccc1a0.gif" alt="Here should appear a gif of the 5-body choreography" width="380"/>
 
-Flexible developent of new systems is possible thanks to the following implemented potentials:
+Flexible development of new systems is possible thanks to the following implemented potentials:
 - electrostatic
 - magnetostatic
 - Lennard-Jones
@@ -62,15 +62,15 @@ Integration of NBodySimulator.jl with [Makie.jl](https://github.com/JuliaPlots/M
 It is also possible to import data from and export data to [PDB](https://en.wikipedia.org/wiki/Protein_Data_Bank_(file_format)) files, and then, for example, visualize particles in [VMD](http://www.ks.uiuc.edu/Research/vmd/) software. Though, it is fully implemented only for water for now.
 
 ## Difficulties
-The first trouble I faced with was implementation of periodic boundary conditions. It seems obvious for me now how to force particles going through one of the simulation cell boundary to appear at the opposite side of the box. But during the first weeks of coding for the GSoC, particles in my simulations were jumping all over the box, suddenly approaching to each other, creating strong repullsive force... and making the simulation finish with failure.
+The first trouble I faced with was implementation of periodic boundary conditions. It seems obvious for me now how to force particles going through one of the simulation cell boundary to appear at the opposite side of the box. But during the first weeks of coding for the GSoC, particles in my simulations were jumping all over the box, suddenly approaching to each other, creating strong repulsive force... and making the simulation finish with failure.
 
-The second problem was the Langevin thermostating for water. It turned out to be difficult to understand how to write equations of the Langevin dynamics and therefore how to write code for molecules consisting of different atoms. Nevertherless, the problem was solved (the damping term of the Langevin equation should depend on the mass of an atom). Here is the example of thermostating the SPC/Fw model of water at 300 K:
+The second problem was the Langevin thermostating for water. It turned out to be difficult to understand how to write equations of the Langevin dynamics and therefore how to write code for molecules consisting of different atoms. Nevertheless, the problem was solved (the damping term of the Langevin equation should depend on the mass of an atom). Here is the example of thermostating the SPC/Fw model of water at 300 K:
 ![langevin thermostating for water](https://user-images.githubusercontent.com/16945627/44005987-c17556f4-9e95-11e8-9324-0d56ee3e74d3.png)
 
 ## Further Work
 As the next important step I plan to submit an article about NBodySimulator.jl to [JOSS](http://joss.theoj.org/about#about).
 
-Certainly the work under development and inprovement of the tools should be continued.
+Certainly the work under development and improvement of the tools should be continued.
 - Performance improvements are the top of the list, because duration of calculations is important and the package aims to be performance competitive with established projects in the field.
 - Implementation of the Ewald summation or other algorithms for approximation of the long range potentials is highly needed for correct calculations.
 - The Nosé-Hoover chains or more advanced MD water models (TIP4P/2005, OPC, etc.) would be interesting for molecular dynamics simulations.
