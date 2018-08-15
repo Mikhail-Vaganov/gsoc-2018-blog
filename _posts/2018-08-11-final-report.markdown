@@ -88,7 +88,7 @@ All the features and tools I developed during the GSoC event were separated into
 
 But before that the development was proceeding inside [DiffEqPhysics.jl][link_to_DiffEqPhysics] project.
 
-This is the list of my pull request:
+This is the list of my pull requests:
 
 **DiffEqPhysics.jl**
 - [#26 "Convenient interface types for the Nbody gravitational problem"](https://github.com/JuliaDiffEq/DiffEqPhysics.jl/pull/26), 
